@@ -1,22 +1,11 @@
 const fs = require('fs');
-const http = require('http');
-const https = require('https');
 
-const urls = process.argv.slice(2);
+function readFile(filePath) {
+  // TODO: Return a promise that resolves to the contents of the file
+}
 
-urls.forEach((url) => {
-  const protocol = url.startsWith('https') ? https : http;
-  const options = { method: 'GET', headers: { 'User-Agent': 'Mozilla/5.0' } };
+function sumColumn(filePath, columnName) {
+  // TODO: Use readFile and promises to calculate the sum of the values in the specified column
+}
 
-  protocol.get(url, options, (res) => {
-    let data = '';
-    res.on('data', (chunk) => {
-      data += chunk;
-    });
-    res.on('end', () => {
-      // TODO: Write the data to a file with the hostname as the filename
-    });
-  }).on('error', (err) => {
-    console.error(`Error downloading ${url}: ${err}`);
-  });
-});
+// TODO: Call sumColumn with the command-line arguments and log the result to the console
